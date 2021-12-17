@@ -46,7 +46,7 @@ function SignUp({onLogin}){
         
     return(
         <div>
-            <p>Dont have an account? Create a free account</p>
+            <p>Create a free account</p>
             <form onSubmit={handleSubmit}>
                 <label>
                     <h4>Email</h4>
@@ -66,7 +66,7 @@ function SignUp({onLogin}){
                 </label>
                 <label>
                     <h4>Avatar</h4>
-                    <input onChange={handleChange} name='avatar' type='text' value={createInfo.avatar} placeholder='image'/>
+                    <input onChange={handleChange} name='avatar' type='text' value={createInfo.avatar} placeholder='image url'/>
                 </label>
                 <button className="allbuttons">Create an account</button>
             </form>

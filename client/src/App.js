@@ -2,11 +2,12 @@ import './App.css';
 import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Welcome from './Welcome';
-import Home from './Home';
+import Main from './Main';
+import Header from './Header';
 
 function App() {
 
-  const [books, setBooks] = useState([]);
+
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -17,17 +18,13 @@ function App() {
     });
   }, []);
 
-  useEffect(() => {
-    fetch("/books")
-      .then((resp) => resp.json())
-      .then((data) => console.log(data));
-  }, []);
 
   if (!user) return <Welcome onLogin={setUser} />
 
   return (
     <div>
-      <Home setUser={setUser} user={user}/>
+      <Header user={user}/>
+        <Main setUser={setUser} user={user} />
     </div>
   );
 }

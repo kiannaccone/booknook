@@ -40,7 +40,7 @@ function Login({onLogin}){
 
     return(
         <div id='login'>
-            <p>Have an account? Sign in!</p>
+            <p>Login</p>
             <form onSubmit={handleSubmit}>
                 <label>
                     <h4>Username</h4>

@@ -1,9 +1,8 @@
-import NavBar from "./NavBar";
 
 function Home ({user, setUser}) {
     return(
         <div>
-            <h1>Sup Bitch</h1>
+            <h1>Home</h1>
         </div>
     )
 }
