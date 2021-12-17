@@ -1,21 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Welcome from './Welcome';
+import Home from './Home';
 
 function App() {
 
-  const [count, setCount] = useState(0);
+  const [books, setBooks] = useState([]);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
+    fetch("/me").then((resp) => {
+      if (resp.ok) {
+        resp.json().then(setUser);
+      }
+    });
   }, []);
 
+  useEffect(() => {
+    fetch("/books")
+      .then((resp) => resp.json())
+      .then((data) => console.log(data));
+  }, []);
+
+  if (!user) return <Welcome onLogin={setUser} />
+
   return (
-    <div className="App">
-      <h1>Page Count: {count}</h1>
+    <div>
+      <Home setUser={setUser} user={user}/>
     </div>
   );
 }
