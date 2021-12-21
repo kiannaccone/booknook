@@ -27,6 +27,9 @@ function NavBar({onLogout}){
             <NavLink className='navlinks' to="/books">
                 Search Books
             </NavLink>
+            <NavLink className='navlinks' to="/discussion">
+                Start Discussion
+            </NavLink>
             <button className="allbuttons" as={Link} to='/' onClick={handleLogOut}>
                 Logout
             </button>

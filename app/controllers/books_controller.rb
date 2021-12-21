@@ -6,7 +6,13 @@ class BooksController < ApplicationController
 
         books = JSON.parse(response)
 
-        render json: {book: books}
+        render json: {books: books["items"]}
     end
+
+    def show
+        book = Book.find(params[:id])
+        render json: book, status: :ok
+    end
+
 
 end

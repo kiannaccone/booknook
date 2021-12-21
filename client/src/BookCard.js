@@ -1,11 +1,18 @@
-function BookCard ({book : {title, author, summary, image, date}}) {
+import { useHistory } from "react-router-dom";
+
+function BookCard ({id, book, title, author, summary, image, date}) {
+
+    let history = useHistory();
+    const handleClick = (e) => {
+    e.preventDefault();
+    history.push(`/books/${book.id}`);
+  };
+
     return (
-        <div>
+        <div onClick = {handleClick}>
             <img src={image} alt={title} /> 
             <h4>{title}</h4> 
-            <p>{author}</p>
-            <p>{date}</p>
-            <p>{summary}</p>
+            <p>by {author}</p>
         </div>
     );
 }
