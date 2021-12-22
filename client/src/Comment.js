@@ -4,6 +4,7 @@ function Comment ({setAllPost}) {
 
     const [postComment, setPostComment] = useState({
         body: "",
+        // current user ???
         // user_id: user.id, 
         // book_id: 
     });
@@ -20,7 +21,7 @@ function Comment ({setAllPost}) {
         fetch("/comments", {
             method: "POST",
             headers: {"Content-Type":"application/json"},
-            body:JSON.stringify({...postComment, book: {}})
+            body: JSON.stringify({...postComment, book: {}})
         })
         .then(resp => resp.json())
         .then(data => {
@@ -40,7 +41,7 @@ function Comment ({setAllPost}) {
                 <h4>Comment</h4>
                 <textarea onChange={handleChange}
                     value={postComment.body} type='text' placeholder='comment'
-                    name="comment"/>
+                    name="body"/>
             </label>
             <div>
             <button className="allbuttons">Post Comment</button>
