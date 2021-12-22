@@ -5,7 +5,7 @@ function Discussion ({allPost, setAllPost, user}) {
     const [postDiscussion, setPostDiscussion] = useState({
         subject: "",
         body: "",
-        user_id: user.id, 
+        // user_id: user.id, 
         // book_id: 
     });
     function handleChange(e) {

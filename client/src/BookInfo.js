@@ -1,18 +1,29 @@
 import BookCard from "./BookCard";
 import {useParams} from "react-router-dom"
+import Discussion from "./Discussion";
+import Comment from "./Comment";
 
 function BookInfo ({ allBooks}) {
 
 
     const {id} = useParams()
     
-    console.log(allBooks)
+    // console.log(allBooks)
 
     const foundBook = allBooks.find( b => b.id === id)
 
-    console.log(foundBook)
+    const followBook = allBooks.filter((b) => b.id === id)
 
-    // allBooks.find passs in a callback function if book is === to id then return true 
+    // console.log(foundBook)
+
+    // get the instances from the backend of which books your following allBooks is not correct
+
+    function handleFollow () {
+        const newFollowBook = {
+            book: followBook.id
+    }}
+
+    
 
     return (
         <div>
@@ -21,7 +32,10 @@ function BookInfo ({ allBooks}) {
             <p>by {foundBook?.volumeInfo?.authors}</p>
             <p>Publication Date: {foundBook?.volumeInfo?.publishedDate}</p>
             <p>Summary: {foundBook?.volumeInfo?.description}</p>
-            {/* <button onClick = {handleClick}>{book.length === 0 ? "Follow Book" : "Unfollow Book"}</button> */}
+
+            <button className="follow" onClick = {handleFollow}>{followBook.length === 0 ? "Follow Book" : "Unfollow Book"}</button>
+            <Discussion />
+            <Comment />
         </div>
     )
 }
