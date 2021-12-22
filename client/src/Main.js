@@ -15,28 +15,22 @@ function Main({user, setUser} ) {
     const [books, setBooks] = useState([]);
     const [search, setSearch] = useState("");
     const [bookList, setBookList] = useState([]);
-    const [allPost, setAllPost] = useState([])
+    const [allBooks, setAllBooks] = useState([])
+
+
+    useEffect(() => {
+        fetch("/books")
+          .then((resp) => resp.json())
+          .then((allBooks) => setAllBooks(allBooks.books));
+      }, []);
 
 
 
-//   useEffect(() => {
-//     fetch("/books")
-//       .then((resp) => resp.json())
-//       .then((books) => console.log(books));
-//   }, []);
-
-useEffect(() => {
-    fetch("/books")
-      .then((resp) => resp.json())
-      .then((books) => setBooks(books));
-  }, []);
-
-
-  const filterBooks = bookList.filter(books => {
+ const filterBooks = allBooks.filter(books => {
     return(
-        books.title.toLowerCase().includes(search.toLowerCase())
+        books.volumeInfo.title.toLowerCase().includes(search.toLowerCase())
         ||
-        books.author.toLowerCase().includes(search.toLowerCase())
+        books.volumeInfo.authors[0].toLowerCase().includes(search.toLowerCase())
     )
 })
 
@@ -51,13 +45,13 @@ useEffect(() => {
                     <Home setUser={setUser} user={user}/>
                 </Route>
                 <Route exact path= "/books">
-                    <BookList search = {search} setSearch = {setSearch} bookList = {filterBooks} books = {books} setBooks = {setBooks}/>
+                    <BookContainer search = {search} setSearch = {setSearch}  books = {books} setBooks = {setBooks} allBooks = {filterBooks}/>
                 </Route>
                 <Route exact path= "/discussion">
-                    <Discussion allPost={allPost} setAllPost = {setAllPost} user={user} />
+                    <Discussion  user={user} />
                 </Route>
                 <Route exact path="/books/:id">
-                    <BookInfo books={books} bookList={bookList} setBookList={setBookList} setBooks={setBooks}/>
+                    <BookInfo allBooks = {allBooks} />
                 </Route>
             </Switch>
         </div>

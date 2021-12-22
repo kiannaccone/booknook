@@ -1,6 +1,7 @@
 import { useHistory } from "react-router-dom";
+import BookInfo from "./BookInfo";
 
-function BookCard ({id, book, title, author, summary, image, date}) {
+function BookCard ({book, id, title, author, summary, image, date}) {
 
     let history = useHistory();
     const handleClick = (e) => {
