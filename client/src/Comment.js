@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Comment ({setAllPost}) {
+function Comment ({allPost, setAllPost, user, foundBook}) {
 
     const [postComment, setPostComment] = useState({
         body: "",
@@ -18,10 +18,25 @@ function Comment ({setAllPost}) {
 
     function handleSubmit(e){
         e.preventDefault()
+        const newComment = {
+              
+            body: postComment.body,
+            user_id: user.id,
+        
+        new_book: {
+        title: foundBook.volumeInfo.title,
+        author: foundBook.volumeInfo.authors,
+        summary: foundBook.volumeInfo.description,
+        date: foundBook.volumeInfo.date,
+        image: foundBook.volumeInfo.imageLinks?.thumbnail,
+        google_book_id: foundBook.id, 
+        }
+   
+    } 
         fetch("/comments", {
             method: "POST",
             headers: {"Content-Type":"application/json"},
-            body: JSON.stringify({...postComment, book: {}})
+            body: JSON.stringify(newComment)
         })
         .then(resp => resp.json())
         .then(data => {
@@ -31,6 +46,7 @@ function Comment ({setAllPost}) {
                 body: ""
             })
         })
+        console.log(foundBook)
     }
 
 
@@ -40,7 +56,7 @@ function Comment ({setAllPost}) {
             <label>
                 <h4>Comment</h4>
                 <textarea onChange={handleChange}
-                    value={postComment.body} type='text' placeholder='comment'
+                    value={postComment.body} type='text' placeholder='leave a comment...'
                     name="body"/>
             </label>
             <div>

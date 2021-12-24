@@ -6,6 +6,7 @@ class CreateBooks < ActiveRecord::Migration[6.1]
       t.string :summary
       t.date :date
       t.string :image
+      t.string :google_book_id
 
       t.timestamps
     end

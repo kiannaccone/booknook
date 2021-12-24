@@ -1,12 +1,11 @@
 import { useState } from "react";
+import DiscussionContainer from "./DiscussionContainer";
 
-function Discussion ({allPost, setAllPost, user}) {
+function Discussion ({allPost, setAllPost, user, foundBook, book}) {
 
     const [postDiscussion, setPostDiscussion] = useState({
         subject: "",
         body: "",
-        // user_id: user.id, 
-        // book_id: 
     });
     function handleChange(e) {
         setPostDiscussion((currentDiscussion) => ({
@@ -17,10 +16,27 @@ function Discussion ({allPost, setAllPost, user}) {
 
     function handleSubmit(e){
         e.preventDefault()
+        const newDiscussion = {
+              
+            subject: postDiscussion.subject,
+            body: postDiscussion.body,
+            user_id: user.id,
+            book_id: foundBook.id,
+            
+                new_book: {
+                    title: foundBook?.volumeInfo?.title,
+                    author: foundBook?.volumeInfo?.authors[0],
+                    summary: foundBook?.volumeInfo?.description,
+                    date: foundBook?.volumeInfo?.publishedDate,
+                    image: foundBook?.volumeInfo?.imageLinks?.thumbnail,
+                    google_book_id: foundBook.id, 
+                }
+       
+        } 
         fetch("/posts", {
             method: "POST",
             headers: {"Content-Type":"application/json"},
-            body:JSON.stringify({...postDiscussion, book: {}})
+            body:JSON.stringify(newDiscussion)
         })
         .then(resp => resp.json())
         .then(data => {
@@ -31,6 +47,7 @@ function Discussion ({allPost, setAllPost, user}) {
                 body: ""
             })
         })
+        // console.log(foundBook)
     }
 
     
@@ -40,20 +57,20 @@ function Discussion ({allPost, setAllPost, user}) {
         <form onSubmit={handleSubmit}>
             <label>
                 <h4>Subject</h4>
-                <input onChange={handleChange}
-                    value={postDiscussion.subject} type='text' placeholder='subject'
-                    name="subject"/>
+                <input onChange={handleChange} value={postDiscussion.subject} type='text' placeholder='subject' name="subject"/>
             </label>
             <label>
                 <h4>Body</h4>
-                <textarea onChange={handleChange} value={postDiscussion.body} type='text' placeholder='body'
-                name="body"/>
+                <textarea onChange={handleChange} value={postDiscussion.body} type='text' placeholder='body' name="body"/>
             </label>
             <div>
-            <button className="allbuttons">Start Discussion</button>
+                <button className="allbuttons">Start Discussion</button>
             </div>
         </form>
+        <DiscussionContainer allPost = {allPost}/>
     </div>
     )
 }
+
+
 export default Discussion;
