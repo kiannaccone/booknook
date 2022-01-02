@@ -1,13 +1,11 @@
 
 
-function OneComment({comment: {body, user:{username}}}){
+function OneComment({comment: {body, user}}){
 
     return(
         <div>
             <p>{body}</p>
-            <div>
-             by: {username}
-            </div>
+            <p>Posted by: {user.username}</p>
         </div>
     )
 }
