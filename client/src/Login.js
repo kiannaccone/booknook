@@ -53,6 +53,8 @@ function Login({onLogin}){
                     <input onChange={handleChange} value={user.password} type='password' placeholder='password'
                     name="password"/>
                 </label>
+                <br/>
+                <br/>
                 <button className="allbuttons">Login</button>
             </form>
         </div>

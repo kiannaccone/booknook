@@ -12,3 +12,18 @@ code {
     monospace;
 }
 
+#logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#welcome {
+  text-align: center;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-evenly;
+}
+

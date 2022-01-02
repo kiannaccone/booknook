@@ -6,10 +6,12 @@ function Welcome({onLogin}){
  
     return(
 
-        <div>
-            <h1>BookNook</h1>
+        <div id= "welcome">
+            <div id="logo">
             <img src={logo}/>
-            <p>Welcome to BookNook! Don't have people to discuss your lastest read with? Experiencing a book hangover? BookNook is the place to talk about your favorite books. </p>
+            </div>
+            <h4>Welcome to BookNook</h4>
+            <p>Your personal bookclub.</p>
             <Login onLogin = {onLogin}/>
             <SignUp onLogin = {onLogin}/>
         </div>

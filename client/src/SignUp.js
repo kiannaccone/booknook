@@ -45,7 +45,7 @@ function SignUp({onLogin}){
     }
         
     return(
-        <div>
+        <div id = "signup">
             <p>Create a free account</p>
             <form onSubmit={handleSubmit}>
                 <label>

@@ -8,7 +8,7 @@ function Header({user}){
         <img src= {logo} />
         <img src={user.avatar}/> 
         <h2>Welcome, {user.username}</h2>
-        </div>
+    </div>
     )
 }
 

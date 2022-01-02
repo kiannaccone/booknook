@@ -70,7 +70,7 @@ function Main({user, setUser} ) {
                     <BookContainer search = {search} setSearch = {setSearch}  books = {books} setBooks = {setBooks} allBooks = {filterBooks}/>
                 </Route>
                 <Route exact path="/books/:id">
-                    <BookInfo allBooks = {allBooks} setBookFollows= {setBookFollows} user= {user} setAllPost = {setAllPost} allPost={allPost}/>
+                    <BookInfo allBooks = {allBooks} setBookFollows= {setBookFollows} user= {user} setAllPost = {setAllPost} allPost={allPost} allComments={allComments} setAllComments={setAllComments}/>
                 </Route>
             </Switch>
         </div>

@@ -3,7 +3,7 @@ import {useParams} from "react-router-dom"
 import Discussion from "./Discussion";
 import Comment from "./Comment";
 
-function BookInfo ({ allBooks, setBookFollows, user, setAllPost, allPost, book}) {
+function BookInfo ({ allBooks, setBookFollows, user, setAllPost, allPost, book, allComments, setAllComments}) {
 
 
     const {id} = useParams()
@@ -14,7 +14,9 @@ function BookInfo ({ allBooks, setBookFollows, user, setAllPost, allPost, book})
 
     const followBook = allBooks.filter((b) => b.id === id)
 
-    // console.log(foundBook)
+    // console.log(foundBook.id)
+    // console.log(followBook)
+    
 
     // get the instances from the backend of which books your following allBooks is not correct
 
@@ -38,7 +40,7 @@ function BookInfo ({ allBooks, setBookFollows, user, setAllPost, allPost, book})
             .then(data => {
             setBookFollows((current) => [...current, data])
         })
-        console.log(new_follow_book )
+        console.log(new_follow_book)
     }
 
 
@@ -70,9 +72,9 @@ function BookInfo ({ allBooks, setBookFollows, user, setAllPost, allPost, book})
             <p>Publication Date: {foundBook?.volumeInfo?.publishedDate}</p>
             <p>Summary: {foundBook?.volumeInfo?.description}</p>
 
-            <button className="follow" onClick = {handleFollowBook}>{followBook.length === 0 ? "Follow Book" : "Unfollow Book"}</button>
-            <Discussion foundBook= {foundBook} user = {user} setAllPost = {setAllPost} book = {book} allPost = {allPost}/>
-            <Comment foundBook= {foundBook} user = {user} setAllPost = {setAllPost}/>
+            <button className="follow" onClick = {handleFollowBook}>{followBook.length === 1 ? "Follow Book" : "Unfollow Book"}</button>
+            <Discussion foundBook= {foundBook} user = {user} setAllPost = {setAllPost} book = {book} allPost = {allPost} followBook= {followBook} allBooks={allBooks} allComments={allComments} setAllComments={setAllComments}/>
+            {/* <Comment foundBook= {foundBook} user = {user} setAllPost = {setAllPost} commentableId={id} commentableType={'Post'}/> */}
         </div>
     )
 }

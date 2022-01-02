@@ -1,12 +1,10 @@
 import { useState } from "react";
 
-function Comment ({allPost, setAllPost, user, foundBook}) {
+function Comment ({ allPost, setAllPost, user, foundBook, commentableType, commentableId}) {
 
+    // const [showComment, setShowComment] = useState(false)
     const [postComment, setPostComment] = useState({
         body: "",
-        // current user ???
-        // user_id: user.id, 
-        // book_id: 
     });
 
     function handleChange(e) {
@@ -19,19 +17,10 @@ function Comment ({allPost, setAllPost, user, foundBook}) {
     function handleSubmit(e){
         e.preventDefault()
         const newComment = {
-              
             body: postComment.body,
             user_id: user.id,
-        
-        new_book: {
-        title: foundBook.volumeInfo.title,
-        author: foundBook.volumeInfo.authors,
-        summary: foundBook.volumeInfo.description,
-        date: foundBook.volumeInfo.date,
-        image: foundBook.volumeInfo.imageLinks?.thumbnail,
-        google_book_id: foundBook.id, 
-        }
-   
+            commentable_type: commentableType,
+            commentable_id: commentableId
     } 
         fetch("/comments", {
             method: "POST",

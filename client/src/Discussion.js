@@ -1,7 +1,8 @@
 import { useState } from "react";
 import DiscussionContainer from "./DiscussionContainer";
 
-function Discussion ({allPost, setAllPost, user, foundBook, book}) {
+function Discussion ({allPost, setAllPost, user, foundBook, book, followBook, allBooks, allComments, setAllComments}) {
+
 
     const [postDiscussion, setPostDiscussion] = useState({
         subject: "",
@@ -67,7 +68,7 @@ function Discussion ({allPost, setAllPost, user, foundBook, book}) {
                 <button className="allbuttons">Start Discussion</button>
             </div>
         </form>
-        <DiscussionContainer allPost = {allPost}/>
+        <DiscussionContainer allPost = {allPost} user = {user} foundBook = {foundBook} allBooks= {allBooks} setAllPost={setAllPost} allComments ={allComments} setAllComments ={setAllComments}/>
     </div>
     )
 }
