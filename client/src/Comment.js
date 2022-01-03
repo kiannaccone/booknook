@@ -28,9 +28,8 @@ function Comment ({ allPost, setAllPost, user, foundBook, commentableType, comme
             body: JSON.stringify(newComment)
         })
         .then(resp => resp.json())
-        .then(data => {
-            setAllPost((current) => [data,...current])
-            console.log(data)
+        .then((theComment) => {
+            setAllPost((currentPosts) => currentPosts.map((p) => p.id === commentableId ? {...p, comments:[...p.comments, theComment]} : p))
             setPostComment({
                 body: ""
             })

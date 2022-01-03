@@ -3,7 +3,7 @@ import Comment from './Comment'
 import OneComment from './OneComment'
 
 function DiscussionCard ({user, post, comments, foundBook, id, postComment, setAllPost, post : {subject, body}}) {
-console.log(comments)
+// console.log(comments)
     const commentsMap = comments.map((comment) => <OneComment key = {comment.id} comment= {comment} user = {user}/>)
     // console.log(comments)
 
