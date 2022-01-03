@@ -48,7 +48,7 @@ function Discussion ({allPost, setAllPost, user, foundBook, book, followBook, al
                 body: ""
             })
         })
-        // console.log(foundBook)
+        console.log(foundBook)
     }
 
     

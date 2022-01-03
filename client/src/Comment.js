@@ -44,11 +44,11 @@ function Comment ({ allPost, setAllPost, user, foundBook, commentableType, comme
             <label>
                 {/* <h4>Comment</h4> */}
                 <textarea onChange={handleChange}
-                    value={postComment.body} type='text' placeholder='leave a comment...'
+                    value={postComment.body} type='text' placeholder='write a comment...'
                     name="body"/>
             </label>
             <div>
-            <button className="allbuttons">Post Comment</button>
+            <button className="allbuttons">Comment</button>
             </div>
         </form>
     </div>

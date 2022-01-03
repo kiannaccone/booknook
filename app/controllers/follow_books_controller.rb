@@ -15,10 +15,10 @@ class FollowBooksController < ApplicationController
     def create
         # byebug
         book = Book.find_or_create_by(book_params)
-        post = Post.new(follow_params)
-        post.book_id = book.id
-        post.save
-        render json: post, status: :created
+        follow = FollowBook.new(follow_params)
+        follow.book_id = book.id
+        follow.save
+        render json: follow, status: :created
     end
 
   
@@ -31,7 +31,7 @@ class FollowBooksController < ApplicationController
     private
 
     def follow_params
-        params.permit(:user_id, :book_id )
+        params.permit(:user_id)
     end
 
     def book_params
