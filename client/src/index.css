@@ -98,17 +98,25 @@ body {
 #navbar {
   display: flex;
   justify-content: space-evenly;
+  color: black;
 }
 
 #avatar{
   border-radius: 50%;
-  height: 7%;
-  width: 7%
+  width: 75px;
+  height: 75px;
 }
 
 .search {
-  display: flex;
+  /* display: flex;
   justify-content: right; 
   padding-top: 1.5%;
-  padding-right: 2%;
+  padding-right: 2%; */
+  border-radius: 10px;
+  /* width: 10rem;
+  height: 1.25rem; */
+}
+
+#bookcard{
+ 
 }
