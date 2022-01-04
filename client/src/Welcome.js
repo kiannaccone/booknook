@@ -10,9 +10,11 @@ function Welcome({onLogin}){
             <div id="logo">
             <img src={logo}/>
             </div>
-            <h4>Welcome to BookNook</h4>
-            <p>Your personal bookclub.</p>
+            <h2>Welcome to BookNook</h2>
+            <p>your personal bookclub.</p>
+            <br/>
             <Login onLogin = {onLogin}/>
+            <br/>
             <SignUp onLogin = {onLogin}/>
         </div>
     )

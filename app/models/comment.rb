@@ -4,4 +4,6 @@ class Comment < ApplicationRecord
 
   has_many :comments, as: :commentable
 
+  validates :body, presence: true
+  
 end

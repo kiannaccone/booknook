@@ -46,29 +46,49 @@ function SignUp({onLogin}){
         
     return(
         <div id = "signup">
-            <p>Create a free account</p>
+            <br/>
+            <h3>Create an Account</h3>
+            <br/>
             <form onSubmit={handleSubmit}>
                 <label>
-                    <h4>Email</h4>
-                    <input onChange={handleChange} type='text' name='email' value={createInfo.email}placeholder='email'/>
+                    <h5>Email</h5>
+                    <br/>
+                    <input id="signup2" onChange={handleChange} type='text' name='email' value={createInfo.email}placeholder='email'/>
                 </label>
                 <label>
-                    <h4>Username</h4>
-                    <input onChange={handleChange} name='username' type='text' value={createInfo.username} placeholder='username'/>
+                    <br/>
+                    <br/>
+                    <h5>Username</h5>
+                    <br/>
+                    <input id="signup2" onChange={handleChange} name='username' type='text' value={createInfo.username} placeholder='username'/>
                 </label>
                 <label>
-                    <h4>Password</h4>
-                    <input onChange={handleChange} name='password' type='password' value={createInfo.password} placeholder='password'/>
+                    <br/>
+                    <br/>
+                    <h5>Password</h5>
+                    <br/>
+                    <input id="signup2" onChange={handleChange} name='password' type='password' value={createInfo.password} placeholder='password'/>
                 </label>
                 <label>
-                    <h4>Comfirm Password</h4>
-                    <input onChange={handleChange} name='confirmpassword' type='password' value={createInfo.confirmpassword}  placeholder='confirm password'/>
+                    <br/>
+                    <br/>
+                    <h5>Comfirm Password</h5>
+                    <br/>
+                    <input id="signup2" onChange={handleChange} name='confirmpassword' type='password' value={createInfo.confirmpassword}  placeholder='confirm password'/>
                 </label>
                 <label>
-                    <h4>Avatar</h4>
-                    <input onChange={handleChange} name='avatar' type='text' value={createInfo.avatar} placeholder='image url'/>
+                    <br/>
+                    <br/>
+                    <h5>Avatar</h5>
+                    <br/>
+                    <input id="signup2" onChange={handleChange} name='avatar' type='text' value={createInfo.avatar} placeholder='image url'/>
                 </label>
-                <button className="allbuttons">Create an account</button>
+                <br/>
+                <br/>
+                <button className="allbuttons">Create Account</button>
+                <br/>
+                <br/>
+                <br/>
             </form>
         </div>
     )

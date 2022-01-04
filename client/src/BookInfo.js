@@ -2,9 +2,11 @@ import BookCard from "./BookCard";
 import {useParams} from "react-router-dom"
 import Discussion from "./Discussion";
 import Comment from "./Comment";
+import { useState } from 'react';
 
 function BookInfo ({ allBooks, setBookFollows, user, setAllPost, allPost, book, allComments, setAllComments}) {
 
+    const [wasClicked, setWasClicked] = useState(false)
 
     const {id} = useParams()
     
@@ -14,7 +16,9 @@ function BookInfo ({ allBooks, setBookFollows, user, setAllPost, allPost, book, 
     const followBook = allBooks.filter((b) => b.id === id)
 
 
+
     function handleFollowBook () {
+        setWasClicked(current => !current)
 
         const new_follow_book = {
             
@@ -43,7 +47,7 @@ function BookInfo ({ allBooks, setBookFollows, user, setAllPost, allPost, book, 
         // console.log(new_follow_book)
     }
     
-    console.log()
+    console.log(followBook.length === 0 )
 
     return (
         <div>
@@ -53,7 +57,7 @@ function BookInfo ({ allBooks, setBookFollows, user, setAllPost, allPost, book, 
             <p>Publication Date: {foundBook?.volumeInfo?.publishedDate}</p>
             <p>Summary: {foundBook?.volumeInfo?.description}</p>
 
-            <button className= "follow" onClick = {handleFollowBook}>{followBook.length === 1 ? "Follow Book" : "Following Book"}</button>
+            <button className= "allbuttons" onClick = {handleFollowBook}>{wasClicked ? "Follow Book" : "Following Book"}</button>
 
             <Discussion foundBook= {foundBook} user = {user} setAllPost = {setAllPost} book = {book} allPost = {allPost} followBook= {followBook} allBooks={allBooks} allComments={allComments} setAllComments={setAllComments}/>
 

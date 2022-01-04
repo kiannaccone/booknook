@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,16 +10,89 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+* {
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  background-image: url('https://www.wallpapertip.com/wmimgs/21-213470_cozy-wallpaper-tumblr-data-src-zindagi-se-nafrat.jpg');
+  /* background-image: url('https://images.unsplash.com/photo-1487621167305-5d248087c724?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bWlzdHklMjBmb3Jlc3R8ZW58MHx8MHx8&w=1000&q=80'); */
+  background-size: cover;
+  background-position: center center;
+  min-height: 100%;
+  width: 100%;
+  background-attachment: fixed;
+
+}
+
+.allbuttons {
+  border-radius: 25px;
+  padding: 5px;
+  width: 120px;
+  height: 30px;
+  background-color: #FAF9F6;
+
 }
 
 #logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  height: 280px;
+  width: auto;
+  margin-bottom: -40px;
+}
+
+#logo2 {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  height: 280px;
+  width: auto;
+  margin-bottom: -40px;
 }
 
 #welcome {
   text-align: center;
+}
+
+.header {
+  /* display: flex; */
+  /* justify-content: center; */
+}
+
+#login {
+  margin: auto;
+  background-color: #ffffff;
+  border: 1px solid black;
+  border-radius: 25px;
+  opacity: 0.6;
+  width: 40%;
+}
+
+#login2 {
+  border-radius: 10px;
+  width: 10rem;
+  height: 1.25rem;
+}
+
+#signup {
+  margin: auto;
+  background-color: #ffffff;
+  border: 1px solid black;
+  border-radius: 25px;
+  opacity: 0.6;
+  width: 40%;
+  margin-bottom: 2%;
+}
+
+#signup2 {
+  border-radius: 10px;
+  width: 10rem;
+  height: 1.25rem;
 }
 
 #navbar {
@@ -27,3 +100,15 @@ code {
   justify-content: space-evenly;
 }
 
+#avatar{
+  border-radius: 50%;
+  height: 7%;
+  width: 7%
+}
+
+.search {
+  display: flex;
+  justify-content: right; 
+  padding-top: 1.5%;
+  padding-right: 2%;
+}

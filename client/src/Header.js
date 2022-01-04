@@ -3,11 +3,10 @@ import logo from "./logo.png"
 function Header({user}){
     
     return(
-    <div id="header">
-        <h1>BookNook</h1> 
-        <img src= {logo} />
-        <img src={user.avatar}/> 
-        <h2>Welcome, {user.username}</h2>
+    <div className="header">
+        <img id="logo2" src={logo} />
+        <h4>Hello, {user.username}</h4>
+        <img id="avatar"src={user.avatar}/> 
     </div>
     )
 }

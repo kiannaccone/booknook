@@ -40,22 +40,30 @@ function Login({onLogin}){
 
     return(
         <div id='login'>
-            <p>Login</p>
+            <br/>
+            <h3>Login</h3>
+            <br/>
             <form onSubmit={handleSubmit}>
                 <label>
-                    <h4>Username</h4>
-                    <input onChange={handleChange}
+                    <h5>Username</h5>
+                    <br/>
+                    <input id= "login2" onChange={handleChange}
                         value={user.username} type='text' placeholder='username'
                         name="username"/>
                 </label>
                 <label>
-                    <h4>Password</h4>
-                    <input onChange={handleChange} value={user.password} type='password' placeholder='password'
+                    <br/>
+                    <br/>
+                    <h5>Password</h5>
+                    <br/>
+                    <input id= "login2" onChange={handleChange} value={user.password} type='password' placeholder='password'
                     name="password"/>
                 </label>
                 <br/>
                 <br/>
                 <button className="allbuttons">Login</button>
+                <br/>
+                <br/>
             </form>
         </div>
     )
