@@ -15,7 +15,9 @@ function BookInfo ({ allBooks, setBookFollows, user, setAllPost, allPost, book, 
 
     const followBook = allBooks.filter((b) => b.id === id)
 
+    // const user.follow_book ==== user.follow_book.id
 
+    // call all books let followBooks = user.follow_books with that array called followBooks map with a conditonal say is this present book is that inside this array? if so say following 
 
     function handleFollowBook () {
         setWasClicked(current => !current)
@@ -47,19 +49,22 @@ function BookInfo ({ allBooks, setBookFollows, user, setAllPost, allPost, book, 
         // console.log(new_follow_book)
     }
     
-    console.log(followBook.length === 0 )
+    // console.log(foundBook.id )
+    console.log(wasClicked)
 
     return (
-        <div>
+        <div id="bookcard">
             <img src={foundBook?.volumeInfo.imageLinks?.thumbnail} alt={foundBook?.volumeInfo?.title} /> 
             <h4>{foundBook?.volumeInfo?.title}</h4> 
             <p>by {foundBook?.volumeInfo?.authors}</p>
             <p>Publication Date: {foundBook?.volumeInfo?.publishedDate}</p>
             <p>Summary: {foundBook?.volumeInfo?.description}</p>
 
-            <button className= "allbuttons" onClick = {handleFollowBook}>{wasClicked ? "Follow Book" : "Following Book"}</button>
+            <button className= "allbuttons" onClick = {handleFollowBook}>{wasClicked ? "Following Book" : "Follow Book"}</button>
 
+            <div>
             <Discussion foundBook= {foundBook} user = {user} setAllPost = {setAllPost} book = {book} allPost = {allPost} followBook= {followBook} allBooks={allBooks} allComments={allComments} setAllComments={setAllComments}/>
+            </div>
 
             {/* <Comment foundBook= {foundBook} user = {user} setAllPost = {setAllPost} commentableId={id} commentableType={'Post'}/> */}
         </div>

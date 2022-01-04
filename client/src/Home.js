@@ -1,8 +1,10 @@
+import BookCard from "./BookCard";
+import FollowBooks from "./FollowBooks";
 
 function Home ({user, setUser}) {
     return(
         <div>
-            <h1>Home</h1>
+            <BookCard />
         </div>
     )
 }

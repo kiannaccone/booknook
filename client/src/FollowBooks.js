@@ -1,11 +1,11 @@
-
+import BookCard from "./BookCard";
 
 function FollowBooks () {
 
-    
+    console.log()
     return (
-        <div>
-
+        <div id= "followbook">
+            <BookCard />
         </div>
     )
 }

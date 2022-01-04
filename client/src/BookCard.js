@@ -10,8 +10,8 @@ function BookCard ({book, id, title, author, summary, image, date}) {
   };
 
     return (
-        <div id= "bookcard" onClick = {handleClick}>
-            <img src={image} alt={title} /> 
+        <div id= "bookcards" onClick = {handleClick}>
+            <img id="bookimage" src={image} alt={title} /> 
             <h4>{title}</h4> 
             <p>by {author}</p>
         </div>
