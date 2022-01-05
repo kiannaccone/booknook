@@ -28,6 +28,12 @@ class FollowBooksController < ApplicationController
         render json: follow, status: :accepted
     end
 
+    def destroy
+        unfollow = FollowBook.findby(id: params[:id])
+        unfollow.destroy
+        head :no_content
+    end
+
     private
 
     def follow_params

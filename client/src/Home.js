@@ -1,10 +1,10 @@
 import BookCard from "./BookCard";
 import FollowBooks from "./FollowBooks";
 
-function Home ({user, setUser}) {
+function Home ({user, bookFollows, setBookFollows}) {
     return(
         <div>
-            <BookCard />
+            <FollowBooks user={user}/>
         </div>
     )
 }

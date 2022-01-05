@@ -2,9 +2,9 @@ import BookCard from "./BookCard";
 import {useParams} from "react-router-dom"
 import Discussion from "./Discussion";
 import Comment from "./Comment";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-function BookInfo ({ allBooks, setBookFollows, user, setAllPost, allPost, book, allComments, setAllComments}) {
+function BookInfo ({ allBooks, setBookFollows, bookFollows, user, setAllPost, allPost, book, allComments, setAllComments}) {
 
     const [wasClicked, setWasClicked] = useState(false)
 
@@ -18,6 +18,14 @@ function BookInfo ({ allBooks, setBookFollows, user, setAllPost, allPost, book, 
     // const user.follow_book ==== user.follow_book.id
 
     // call all books let followBooks = user.follow_books with that array called followBooks map with a conditonal say is this present book is that inside this array? if so say following 
+
+    // use effect on comp did mount instance of stae? include google book id 
+
+
+    useEffect(() => {
+        const foundFollow = bookFollows.find(follow => follow.book.google_book_id === id)
+        foundFollow ? setWasClicked(true) : setWasClicked(false)
+    }, [bookFollows]);
 
     function handleFollowBook () {
         setWasClicked(current => !current)
@@ -48,6 +56,17 @@ function BookInfo ({ allBooks, setBookFollows, user, setAllPost, allPost, book, 
         })
         // console.log(new_follow_book)
     }
+
+    function handleUnfollowBook(){
+        fetch(`/unfollow/${id}`, {
+            method: 'DELETE',
+        })
+        .then(() => console.log('bye'))
+        setBookFollows((currentBookFollows) => {
+                return currentBookFollows.filter((follow) => follow.book.google_book_id === id)
+            })
+        
+    }
     
     // console.log(foundBook.id )
     console.log(wasClicked)
@@ -60,9 +79,14 @@ function BookInfo ({ allBooks, setBookFollows, user, setAllPost, allPost, book, 
             <p>Publication Date: {foundBook?.volumeInfo?.publishedDate}</p>
             <p>Summary: {foundBook?.volumeInfo?.description}</p>
 
-            <button className= "allbuttons" onClick = {handleFollowBook}>{wasClicked ? "Following Book" : "Follow Book"}</button>
+            <br/>
+            {/* <button className= "allbuttons" onClick = {handleFollowBook}>{wasClicked ? "Following Book" : "Follow Book"}</button> */}
 
-            <div>
+            <button className= "allbuttons" onClick = {handleFollowBook}></button>
+
+            {/* {wasClicked ? <div> {follows}</div> : <div>{follows}</div>} */}
+
+            <div id = "diss">
             <Discussion foundBook= {foundBook} user = {user} setAllPost = {setAllPost} book = {book} allPost = {allPost} followBook= {followBook} allBooks={allBooks} allComments={allComments} setAllComments={setAllComments}/>
             </div>
 

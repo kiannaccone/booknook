@@ -64,13 +64,13 @@ function Main({user, setUser} ) {
                     <Welcome />
                 </Route>
                 <Route exact path= "/home">
-                    <Home setUser={setUser} user={user}/>
+                    <Home setUser={setUser} user={user} bookFollows={bookFollows} setBookFollows = {setBookFollows}/>
                 </Route>
                 <Route exact path= "/books">
                     <BookContainer search = {search} setSearch = {setSearch}  books = {books} setBooks = {setBooks} allBooks = {filterBooks}/>
                 </Route>
                 <Route exact path="/books/:id">
-                    <BookInfo allBooks = {allBooks} setBookFollows= {setBookFollows} user= {user} setAllPost = {setAllPost} allPost={allPost} allComments={allComments} setAllComments={setAllComments}/>
+                    <BookInfo allBooks = {allBooks} setBookFollows= {setBookFollows} bookFollows={bookFollows} user= {user} setAllPost = {setAllPost} allPost={allPost} allComments={allComments} setAllComments={setAllComments}/>
                 </Route>
             </Switch>
         </div>
