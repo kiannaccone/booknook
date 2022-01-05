@@ -39,15 +39,16 @@ function Comment ({ allPost, setAllPost, user, foundBook, commentableType, comme
 
 
     return (
-     <div id='comment'>
+     <div id='commentform'>
         <form onSubmit={handleSubmit}>
             <label>
                 {/* <h4>Comment</h4> */}
-                <textarea onChange={handleChange}
+                <textarea id="commentbox" required onChange={handleChange}
                     value={postComment.body} type='text' placeholder='write a comment...'
                     name="body"/>
             </label>
             <div>
+                <br/>
             <button className="allbuttons">Comment</button>
             </div>
         </form>

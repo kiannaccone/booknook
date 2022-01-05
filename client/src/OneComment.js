@@ -3,9 +3,9 @@
 function OneComment({comment: {body, user}}){
 
     return(
-        <div>
+        <div id="comment">
             <p>{body}</p>
-            <p>Posted by: {user.username}</p>
+            <h6>Posted by: {user.username}</h6>
         </div>
     )
 }

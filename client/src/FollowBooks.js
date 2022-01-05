@@ -3,25 +3,6 @@ import BookCard from "./BookCard";
 function FollowBooks ({user}) {
 
 
-    // function handleFollow () {
-    //     const new_follow = {
-    //         user_id: user.id,
-    //         new_follow_book
-    //         }
-    //     fetch('/follow_books',{
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-Type" : "application/json",
-    //         },
-    //         body: JSON.stringify(newFollow)
-    //     })
-    //         .then(resp => resp.json())
-    //         .then(data => {
-    //             setBookFollows((current) => [...current, data])
-    //     })
-    // }
-
-
     console.log()
     return (
          <div>

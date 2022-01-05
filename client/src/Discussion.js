@@ -57,18 +57,21 @@ function Discussion ({allPost, setAllPost, user, foundBook, book, followBook, al
         <div id='discussion'>
         <form onSubmit={handleSubmit}>
             <label>
-                <h4>Subject</h4>
-                <input onChange={handleChange} value={postDiscussion.subject} type='text' placeholder='subject' name="subject"/>
+                <h4 id="subject" >Subject</h4>
+                <input id="subjecttext" required onChange={handleChange} value={postDiscussion.subject} type='text' placeholder='subject' name="subject"/>
             </label>
             <label>
-                <h4>Body</h4>
-                <textarea onChange={handleChange} value={postDiscussion.body} type='text' placeholder='body' name="body"/>
+                <h4 id="body" >Body</h4>
+                <textarea id="bodytext" required onChange={handleChange} value={postDiscussion.body} type='text' placeholder='body' name="body"/>
             </label>
             <div>
-                <button className="allbuttons">Start Discussion</button>
+                <br/>
+                <button id="dissbutton">Start Discussion</button>
             </div>
         </form>
+        <div id="disscont">
         <DiscussionContainer allPost = {allPost} user = {user} foundBook = {foundBook} allBooks= {allBooks} setAllPost={setAllPost} allComments ={allComments} setAllComments ={setAllComments}/>
+        </div>
     </div>
     )
 }

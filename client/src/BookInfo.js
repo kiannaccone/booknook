@@ -77,14 +77,15 @@ function BookInfo ({ allBooks, setBookFollows, bookFollows, user, setAllPost, al
             <h4>{foundBook?.volumeInfo?.title}</h4> 
             <p>by {foundBook?.volumeInfo?.authors}</p>
             <p>Publication Date: {foundBook?.volumeInfo?.publishedDate}</p>
-            <p>Summary: {foundBook?.volumeInfo?.description}</p>
+            <p id="summary">Summary: {foundBook?.volumeInfo?.description}</p>
 
             <br/>
             {/* <button className= "allbuttons" onClick = {handleFollowBook}>{wasClicked ? "Following Book" : "Follow Book"}</button> */}
 
-            <button className= "allbuttons" onClick = {handleFollowBook}></button>
+            {wasClicked ?<button className= "allbuttons" onClick={handleFollowBook}>Following Book</button> : <button onClick={handleUnfollowBook}>Follow Book</button>}
 
-            {/* {wasClicked ? <div> {follows}</div> : <div>{follows}</div>} */}
+            {/* <button className= "allbuttons" onClick = {handleFollowBook}></button> */}
+
 
             <div id = "diss">
             <Discussion foundBook= {foundBook} user = {user} setAllPost = {setAllPost} book = {book} allPost = {allPost} followBook= {followBook} allBooks={allBooks} allComments={allComments} setAllComments={setAllComments}/>

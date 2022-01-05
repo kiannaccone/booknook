@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   has_many :comments, as: :commentable
 
 
-  validates :subject, presence: true
-  validates :body, presence: true
+  validates :body, presence: true, length: {minimum: 1}
+  validates :subject, presence: true, length: {minimum: 1}
 
 end

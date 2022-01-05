@@ -8,11 +8,11 @@ function DiscussionCard ({user, post, comments, foundBook, id, postComment, setA
     // console.log(comments)
 
     return (
-        <div>
-            <h5>{subject}</h5>
+        <div id = "disscard">
+            <h3>{subject}</h3>
             <p>{body}</p>
             <h6>Posted by: {user.username}</h6>
-            <p>Comments:{commentsMap}</p>
+            <p id = "commenttext">Comments:{commentsMap}</p>
             <Comment foundBook= {foundBook} user = {user} setAllPost= {setAllPost} commentableId={id} commentableType={'Post'}/>
         </div> 
     )
