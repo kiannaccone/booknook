@@ -15,12 +15,6 @@ function BookInfo ({ allBooks, setBookFollows, bookFollows, user, setAllPost, al
 
     const followBook = allBooks.filter((b) => b.id === id)
 
-    // const user.follow_book ==== user.follow_book.id
-
-    // call all books let followBooks = user.follow_books with that array called followBooks map with a conditonal say is this present book is that inside this array? if so say following 
-
-    // use effect on comp did mount instance of stae? include google book id 
-
 
     useEffect(() => {
         const foundFollow = bookFollows.find(follow => follow.book.google_book_id === id)
@@ -81,8 +75,8 @@ function BookInfo ({ allBooks, setBookFollows, bookFollows, user, setAllPost, al
 
             <br/>
             {/* <button className= "allbuttons" onClick = {handleFollowBook}>{wasClicked ? "Following Book" : "Follow Book"}</button> */}
-
-            {wasClicked ?<button className= "allbuttons" onClick={handleFollowBook}>Following Book</button> : <button onClick={handleUnfollowBook}>Follow Book</button>}
+            <button className= "follow" onClick = {handleFollowBook}>{followBook.length === 1 ? "Follow Book" : "Following Book"}</button>
+            {/* {wasClicked ?<button className= "allbuttons" onClick={handleFollowBook}>Following Book</button> : <button onClick={handleUnfollowBook}>Follow Book</button>} */}
 
             {/* <button className= "allbuttons" onClick = {handleFollowBook}></button> */}
 

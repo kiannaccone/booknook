@@ -295,6 +295,13 @@ text-align: left;
   justify-content: center;
   width: 20rem;
   height: 5rem;
-
 }
 
+#hometext {
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 12%;
+  width: 45%;
+}

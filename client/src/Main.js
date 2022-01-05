@@ -21,37 +21,36 @@ function Main({user, setUser} ) {
     const [allComments, setAllComments] = useState([])
     const [bookFollows, setBookFollows] = useState([])
 
-
-
+    
     useEffect(() => {
         fetch("/books")
           .then((resp) => resp.json())
           .then((allBooks) => setAllBooks(allBooks.books));
-    }, []);
-
-    useEffect(() => {
-        fetch("/posts")
-          .then((resp) => resp.json())
-          .then((allPost) => setAllPost(allPost));
-    }, []);
-
-    useEffect(() => {
-        fetch("/comments")
-          .then((resp) => resp.json())
-          .then((allComments) => setAllComments(allComments));
-    }, []);
-
-    useEffect(() => {
-        fetch("/follow_books")
-          .then((resp) => resp.json())
-          .then((bookFollows) => setBookFollows(bookFollows));
-    }, []);
-
-
- const filterBooks = allBooks.filter(books => {
-    return(
-        books.volumeInfo.title.toLowerCase().includes(search.toLowerCase())
-        ||
+        }, []);
+        
+        useEffect(() => {
+            fetch("/posts")
+            .then((resp) => resp.json())
+            .then((allPost) => setAllPost(allPost));
+        }, []);
+        
+        useEffect(() => {
+            fetch("/comments")
+            .then((resp) => resp.json())
+            .then((allComments) => setAllComments(allComments));
+        }, []);
+        
+        useEffect(() => {
+            fetch("/follow_books")
+            .then((resp) => resp.json())
+            .then((bookFollows) => setBookFollows(bookFollows));
+        }, []);
+    
+        
+        const filterBooks = allBooks.filter(books => {
+            return(
+                books.volumeInfo.title.toLowerCase().includes(search.toLowerCase())
+                ||
         books.volumeInfo.authors[0].toLowerCase().includes(search.toLowerCase())
     )
 })

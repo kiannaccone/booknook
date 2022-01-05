@@ -19,11 +19,7 @@ function App() {
   }, []);
 
 
-  if 
-  (!user) return <Welcome onLogin={setUser} />
-//   else {
-//     return <h2>Loading....</h2>
-// }
+  if (!user) return <Welcome onLogin={setUser} />
 
   return (
     <div>
