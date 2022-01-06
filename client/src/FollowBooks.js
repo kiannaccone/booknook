@@ -1,17 +1,15 @@
-import BookCard from "./BookCard";
+// import BookCard from "./BookCard";
 
-function FollowBooks ({user}) {
+// function FollowBooks ({user, follow, book, id, title, author, image}) {
 
 
-    console.log()
-    return (
-         <div>
-           {/* <BookCard /> */}
-           {/* <img id="bookimage" src={image} alt={title} /> 
-            <h4>{title}</h4> 
-            <p>by {author}</p> */}
-        </div>
-    )
-}
+//     console.log(author)
 
-export default FollowBooks;
+//     return (
+//          <div>
+//            <BookCard />
+//         </div>
+//     )
+// }
+
+// export default FollowBooks;

@@ -63,7 +63,7 @@ function Main({user, setUser} ) {
                     <Welcome />
                 </Route>
                 <Route exact path= "/home">
-                    <Home setUser={setUser} user={user} bookFollows={bookFollows} setBookFollows = {setBookFollows}/>
+                    <Home setUser={setUser} user={user} bookFollows={bookFollows} setBookFollows = {setBookFollows} books={books}/>
                 </Route>
                 <Route exact path= "/books">
                     <BookContainer search = {search} setSearch = {setSearch}  books = {books} setBooks = {setBooks} allBooks = {filterBooks}/>

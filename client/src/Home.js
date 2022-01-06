@@ -1,20 +1,26 @@
 import BookCard from "./BookCard";
 import FollowBooks from "./FollowBooks";
+import { useHistory } from "react-router-dom";
 
-function Home ({user, bookFollows, setBookFollows}) {
+function Home ({user, bookFollows, setBookFollows, books, book, id, title, author, image}) {
+
+    
+    let history = useHistory();
+    const handleClick = (e) => {
+    e.preventDefault();
+    history.push(`/books/${book.id}`);
+  };
 
     if ((user.follow_books.length > 0 )) {
 
-    const bookIds = user.follow_books.map((novel) => novel.id)
-    
-    // const followsFilter = bookFollows.filter((follow) => follow.book.google_book_id === bookIds)
+    const followsFilter = bookFollows.filter((follow) => follow.user.id === user.id)
 
-    const followsFilter = bookFollows.filter((follow) => bookIds.includes(follow.user.follow_books))
+    const followsMap = followsFilter.map((follow) => <BookCard key={follow.id} follow={follow} books={books} author={follow.book.author} image={follow.book.image} title={follow.book.title}/>)
 
-    const followsMap = followsFilter.map((follow) => <FollowBooks key={follow.id} follow={follow}/>)
 
     return(
         <div>
+            <h3 id="homefollow">Books You Follow</h3>
             {followsMap}
         </div>
     )
