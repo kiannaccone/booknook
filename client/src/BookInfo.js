@@ -75,7 +75,7 @@ function BookInfo ({ allBooks, setBookFollows, bookFollows, user, setAllPost, al
 
             <br/>
             {/* <button className= "allbuttons" onClick = {handleFollowBook}>{wasClicked ? "Following Book" : "Follow Book"}</button> */}
-            <button className= "follow" onClick = {handleFollowBook}>{ wasClicked ? "Follow Booking" : "Follow Book"}</button>
+            <button className= "follow" onClick = {handleFollowBook}>{ wasClicked ? "Follow Book" : "Following Book"}</button>
             {/* {wasClicked ?<button className= "allbuttons" onClick={handleFollowBook}>Following Book</button> : <button onClick={handleUnfollowBook}>Follow Book</button>} */}
 
             {/* <button className= "allbuttons" onClick = {handleFollowBook}></button> */}
