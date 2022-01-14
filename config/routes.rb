@@ -16,4 +16,6 @@ Rails.application.routes.draw do
 
   delete "/logout", to: "sessions#destroy"
 
+  delete "/unfollow/:id", to: "follow_books#destroy"
+
 end

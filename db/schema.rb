@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_12_15_210047) do
     t.string "summary"
     t.date "date"
     t.string "image"
+    t.string "google_book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
